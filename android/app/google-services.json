@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "448110322191",
+    "project_id": "ufind-cb187",
+    "storage_bucket": "ufind-cb187.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448110322191:android:f7d912ee2177d42cd2f97a",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK8skc5SB4nzwdf_ILC3Hz1BESTzDyuqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,48 @@
+// Root-level build.gradle
+
+// Buildscript block to define classpath dependencies
+buildscript {
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()  // Central Maven repository
+        jcenter()
+        maven { url "${project(':background_fetch').projectDir}/libs" }
+
+    }
+}
+ext {
+        compileSdkVersion   = 35                // or higher / as desired
+        targetSdkVersion    = 35                // or higher / as desired
+     }
+
+// All projects can access these repositories
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url "${project(':background_fetch').projectDir}/libs" }
+
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:-options'
+}
+// Set the build directory location for the root project
+rootProject.buildDir = "../build"
+
+// Set the build directory for all subprojects to be under the root build directory
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Ensure the ":app" project is evaluated before others
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// Clean task to delete the build directory
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
